@@ -1,3 +1,22 @@
+1.1
+===
+
+  - Added most of the CGI environment variables into the Env hash.
+  - docroot now defaults to undef which turns off file serving.
+  - Added support for CGI via CaptureSTDOUT() and ProcessSTDOUT().
+  - Fixed bugs with / on directories.
+  - Added support for RegisterRegex.
+  - Fixed bug with _date and missing Sep(tember) entry in the date.
+  - Fixed bug with some error conditions.
+  - Added support for OPTIONS.
+
+1.0.2
+=====
+
+  - If you register a callback /some/path/index.foo, AND you set the index
+    list to include index.foo then /some/path/ will resolve to the callback.
+    Thanks to John Jones for this request.
+
 1.0.1
 =====
 
