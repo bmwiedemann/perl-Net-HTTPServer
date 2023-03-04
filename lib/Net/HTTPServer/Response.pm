@@ -73,6 +73,10 @@ and stop.  The config hash takes the options:
 Returns the current value of the response body.  Sets the content of
 the response if a value is specified.
 
+Body() always returns the value as a utf8::encode()ed string.
+As a parameter it accepts both, perl unicode wide character strings
+or utf8 encoded byte strings.
+
 =head2 Clear()
 
 Reset the body to "".
@@ -194,7 +198,12 @@ sub Body
     my $self = shift;
     my $body = shift;
 
-    return $self->{BODY} unless defined($body);
+    unless (defined $body)
+      {
+        utf8::encode $self->{BODY} if utf8::is_utf8 $self->{BODY};
+        return $self->{BODY};
+      }
+
     $self->{BODY} = $body;
 }
 
@@ -401,7 +410,7 @@ sub _build
     chomp($header);
     $header .= "\r\n\r\n";
 
-    return ($header,$self->{BODY});
+    return ($header,$self->Body());
 }
 
 
