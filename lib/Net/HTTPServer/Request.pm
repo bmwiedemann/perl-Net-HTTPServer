@@ -340,7 +340,7 @@ sub _parse
     #-------------------------------------------------------------------------
     # What did they ask for?
     #-------------------------------------------------------------------------
-    $self->{PATH} = $self->_chroot($uri->path());
+    $self->{PATH} = $self->_chroot(uri_unescape($uri->path()));
 
     my ($headers,$body) = ($self->{REQUEST} =~ /^(.+?)\015?\012\015?\012(.*?)$/s);
     
