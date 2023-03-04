@@ -16,6 +16,8 @@ function calls to URL requests.  This allows you to do a lot of things:
 Ryan Eatmon
 reatmon@mail.com
 
+2023-03-04 Adopted by Berhard M. Wiedemann <bernhard+Net-HTTPServer at lsmod.de>
+
 
 REQUIREMENTS
   - URI              - Handles all of the URL magic

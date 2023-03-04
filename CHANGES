@@ -1,3 +1,14 @@
+1.2
+===
+
+  - Fix injection of unencoded unicode strings
+  - Unescape incoming URIs
+  - Apply fixes to man pages
+  - Add support for localaddr
+  - Fix warning about undefined variable
+  - Avoid doing reverse lookups of client IPs
+  - Fix serving binary files in Windows
+
 1.1.1
 =====
 
