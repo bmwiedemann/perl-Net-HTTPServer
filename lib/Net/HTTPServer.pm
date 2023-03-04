@@ -2031,9 +2031,6 @@ sub _process
             my ($port, $iaddr) = unpack_sockaddr_in($other_end);
             my $ip_addr = inet_ntoa($iaddr);
             $requestObj->_env("REMOTE_ADDR",$ip_addr);
-            
-            my $hostname = gethostbyaddr($iaddr, AF_INET);
-            $requestObj->_env("REMOTE_NAME",$hostname) if ($hostname);
         }
 
         $requestObj->_env("DOCUMENT_ROOT",$self->{CFG}->{DOCROOT})
