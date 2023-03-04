@@ -85,6 +85,9 @@ and stop.  The config hash takes the options:
                           the index file when a directory is requested.
                           ( Default: ["index.html","index.htm"] )
 
+    localaddr => string - Set the IP address to listen on
+                          ( Default: undef )
+
     log => string       - Path to store the log at.  If you set this to
                           "STDOUT" then it will display to STDOUT.
                           ( Default: access.log )
@@ -518,6 +521,7 @@ sub new
     $self->{CFG}->{NUMPROC}     = $self->_arg("numproc",5);
     $self->{CFG}->{OLDREQUEST}  = $self->_arg("oldrequest",0);
     $self->{CFG}->{PORT}        = $self->_arg("port",9000);
+    $self->{CFG}->{LOCALADDR}   = $self->_arg("localaddr",undef);
     $self->{CFG}->{SESSIONS}    = $self->_arg("sessions",0);
     $self->{CFG}->{SSL}         = $self->_arg("ssl",0) && $SSL;
     $self->{CFG}->{SSL_KEY}     = $self->_arg("ssl_key",undef);
@@ -784,6 +788,9 @@ sub Start
     $self->_debug("INIT","Start: Starting the server");
 
     my $port = $self->{CFG}->{PORT};
+    my @localaddr = ();
+    my $localaddr = $self->{CFG}->{LOCALADDR};
+    @localaddr = (LocalAddr=>$localaddr) if $localaddr;
     my $scan = ($port eq "scan" ? 1 : 0);
     $port = 8000 if $scan;
     
@@ -796,6 +803,7 @@ sub Start
         if ($self->{CFG}->{SSL} == 0)
         {
             $self->{SOCK} = new IO::Socket::INET(LocalPort=>$port,
+                                                 @localaddr,
                                                  Proto=>"tcp",
                                                  Listen=>10,
                                                  Reuse=>1,
