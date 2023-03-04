@@ -1130,7 +1130,7 @@ sub _ProcessRequest
         $method = "callback";
         $reqPath = $reqPath1;
     }
-    elsif (exists($self->{CALLBACKS}->{$reqPath2}))
+    elsif (defined($reqPath2) && exists($self->{CALLBACKS}->{$reqPath2}))
     {
         $method = "callback";
         $reqPath = $reqPath2;
