@@ -22,7 +22,7 @@ package Net::HTTPServer::Request;
 
 =head1 NAME
 
-Net::HTTPServer::Request
+Net::HTTPServer::Request - HTTP request
 
 =head1 SYNOPSIS
 

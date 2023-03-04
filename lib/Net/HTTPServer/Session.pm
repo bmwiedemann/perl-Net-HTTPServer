@@ -22,7 +22,7 @@ package Net::HTTPServer::Session;
 
 =head1 NAME
 
-Net::HTTPServer::Session
+Net::HTTPServer::Session - HTTP server side client session
 
 =head1 SYNOPSIS
 

@@ -22,7 +22,7 @@ package Net::HTTPServer;
 
 =head1 NAME
 
-Net::HTTPServer
+Net::HTTPServer - HTTP server
 
 =head1 SYNOPSIS
 
@@ -140,7 +140,7 @@ and stop.  The config hash takes the options:
 =head2 AddServerTokens(token,[token,...])
 
 Adds one or more tokens onto the Server header line that the server sends
-back in a response.  The list is seperated by a ; to distinguish the
+back in a response.  The list is separated by a ; to distinguish the
 various tokens from each other.
 
   $server->AddServerTokens("test/1.3");

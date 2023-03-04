@@ -22,7 +22,7 @@ package Net::HTTPServer::Response;
 
 =head1 NAME
 
-Net::HTTPServer::Response
+Net::HTTPServer::Response - HTTP response
 
 =head1 SYNOPSIS
 
