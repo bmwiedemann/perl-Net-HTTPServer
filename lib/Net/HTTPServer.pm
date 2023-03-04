@@ -1396,6 +1396,7 @@ sub _ServeFile
 
     my $fileHandle = new FileHandle($fullpath);
     return $self->_NotFound() unless defined($fileHandle);
+    $fileHandle->binmode();
 
     my $response = new Net::HTTPServer::Response();
 
